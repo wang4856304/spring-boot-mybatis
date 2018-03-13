@@ -2,7 +2,9 @@ package com.wj.interceptor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.MethodParameter;
 import org.springframework.util.StringUtils;
+import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +22,7 @@ import java.io.InputStreamReader;
 public class HttpLogInterceptor implements HandlerInterceptor {
     private static Logger logger = LoggerFactory.getLogger(HttpLogInterceptor.class);
     @Override
-    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
+    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler) throws Exception {
         String url = httpServletRequest.getRequestURL().toString();
         String queryString = httpServletRequest.getQueryString();
         String methodName = httpServletRequest.getMethod();

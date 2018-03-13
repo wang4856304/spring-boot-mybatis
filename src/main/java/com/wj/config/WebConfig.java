@@ -40,7 +40,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new HttpLogInterceptor()).addPathPatterns("/**");
+        //registry.addInterceptor(new HttpLogInterceptor()).addPathPatterns("/**");
         super.addInterceptors(registry);
     }
 }
