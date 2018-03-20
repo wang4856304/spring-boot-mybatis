@@ -1,12 +1,11 @@
 /usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/exception/BusinessException.java
+/usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/dao/BaseDao.java
 /usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/interceptor/HttpLogInterceptor.java
 /usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/controller/TestController.java
 /usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/config/WebConfig.java
 /usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/enums/ResultEnum.java
-/usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/log/Log.java
 /usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/exception/ControllerAdvice.java
 /usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/entity/Response.java
-/usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/log/LogFactory.java
 /usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/controller/BaseController.java
 /usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/config/MasterDBConfig.java
 /usr/idea/testProject/spring-boot-mybatis/src/main/java/com/wj/SpringBootMybatisApp.java
