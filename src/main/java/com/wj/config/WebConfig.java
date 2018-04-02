@@ -1,5 +1,6 @@
 package com.wj.config;
 
+import com.wj.interceptor.HttpLogInterceptor;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -34,7 +35,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        //registry.addInterceptor(new HttpLogInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(new HttpLogInterceptor()).addPathPatterns("/**");
         super.addInterceptors(registry);
     }
 }

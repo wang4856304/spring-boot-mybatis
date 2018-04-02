@@ -3,11 +3,13 @@ package com.wj.interceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
+import org.springframework.util.StreamUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -27,7 +29,10 @@ public class HttpLogInterceptor implements HandlerInterceptor {
         String queryString = httpServletRequest.getQueryString();
         String methodName = httpServletRequest.getMethod();
         if (StringUtils.isEmpty(queryString)) {
+            //HttpServletRequestWrapper wrapper = new HttpServletRequestWrapper(httpServletRequest);
+            //InputStream inputStream = wrapper.getInputStream();
             InputStream inputStream = httpServletRequest.getInputStream();
+            StreamUtils.copyToByteArray(httpServletRequest.getInputStream());
             InputStreamReader reader = new InputStreamReader(inputStream, "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(reader);
             StringBuffer sb = new StringBuffer();
