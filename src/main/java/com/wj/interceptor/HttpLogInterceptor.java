@@ -1,5 +1,6 @@
 package com.wj.interceptor;
 
+import com.wj.filter.BodyReaderHttpServletRequestWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -29,28 +30,24 @@ public class HttpLogInterceptor implements HandlerInterceptor {
         String queryString = httpServletRequest.getQueryString();
         String methodName = httpServletRequest.getMethod();
         if (StringUtils.isEmpty(queryString)) {
+            String data = new BodyReaderHttpServletRequestWrapper(httpServletRequest).getBodyString(httpServletRequest);
+            System.out.println(data);
             //HttpServletRequestWrapper wrapper = new HttpServletRequestWrapper(httpServletRequest);
             //InputStream inputStream = wrapper.getInputStream();
-            InputStream inputStream = httpServletRequest.getInputStream();
+            /*InputStream inputStream = httpServletRequest.getInputStream();
             StreamUtils.copyToByteArray(httpServletRequest.getInputStream());
             InputStreamReader reader = new InputStreamReader(inputStream, "UTF-8");
-            BufferedReader bufferedReader = new BufferedReader(reader);
-            StringBuffer sb = new StringBuffer();
-            String line = bufferedReader.readLine();
-            if (line == null) {
+            BufferedReader bufferedReader = new BufferedReader(reader);*/
+            if (StringUtils.isEmpty(data)) {
                 logger.info("request url=" + url + ", method=" + methodName);
             }
             else {
-                while (line != null) {
-                    sb.append(line);
-                    line = bufferedReader.readLine();
-                }
-                logger.info("request url=" + url + ", method=" + methodName + ", param=" + sb.toString());
+                logger.info("request url=" + url + ", method=" + methodName + ", param: " + data);
             }
 
         }
         else {
-            logger.info("request url=" + url + ", method=" + methodName + ", param=" + queryString);
+            logger.info("request url=" + url + ", method=" + methodName + ", param: " + queryString);
         }
         return true;
     }
